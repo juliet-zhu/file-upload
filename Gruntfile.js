@@ -15,6 +15,9 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    // Require formidble
+    require('formidable')
+
     // Configurable paths
     var config = {
         app: 'app',
@@ -31,12 +34,9 @@ module.exports = function (grunt) {
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
-            js: {
-                files: ['<%= config.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint'],
-                options: {
-                    livereload: true
-                }
+            js:{
+                files:['<%= config.app %>/scripts/**/*.js'],
+                tasks:['copy']
             },
             gruntfile: {
                 files: ['Gruntfile.js'],
@@ -70,17 +70,22 @@ module.exports = function (grunt) {
                 open: true,
                 livereload: 35729,
                 // Change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
+                hostname: '0.0.0.0'
             },
             livereload: {
                 options: {
                     base:'dev',
                     middleware: function(connect, options, middlewares) {
-                            middlewares.unshift(require('connect-livereload')());
+                            var mids = middlewares.unshift(require('connect-livereload')());
+                            mids.push(function(req,res,next){
+                                if(req.url=='/upload'){
+                                    console.log('it works!!');
+                                   res.end(JSON.stringify({result:'success'}));
+                                }
+                            });
 
-                            return middlewares;
+                            return mids;
                     }
-                    
                 }
             },
             test: {
@@ -123,7 +128,8 @@ module.exports = function (grunt) {
         // Make sure code styles are up to par and there are no obvious mistakes
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                ignores:['<%= config.app %>/scripts/libs/responsive.min.js']
             },
             all: [
                 'Gruntfile.js',

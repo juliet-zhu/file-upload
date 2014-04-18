@@ -3,7 +3,6 @@ block vars
   - var page = "home"
 block head 
   link(href="styles/libs/bootstrap.css",rel="stylesheet")
-  link(href="styles/components/blueimp-gallery.min.css",rel="stylesheet")
   link(href="styles/components/jquery.fileupload.css",rel="stylesheet")
   link(href="styles/components/jquery.fileupload-ui.css",rel="stylesheet")
   link(href="styles/components/style.css",rel="stylesheet")
@@ -48,15 +47,6 @@ block content
       // The table listing the files available for upload/download
       table.table.table-striped(role='presentation')
         tbody.files
-  // The blueimp Gallery widget
-  #blueimp-gallery.blueimp-gallery.blueimp-gallery-controls(data-filter=':even')
-    .slides
-    h3.title
-    a.prev ‹
-    a.next ›
-    a.close ×
-    a.play-pause
-    ol.indicator
 block js 
   script(id="template-upload",type="text/x-tmpl").
     {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -129,18 +119,16 @@ block js
               </td>
           </tr>
       {% } %}
-  script(src="scripts/libs/jquery-1.9.1.min.js")
+  script(src="scripts/libs/jquery.js")
   script(src="scripts/components/vendor/jquery.ui.widget.js")
   script(src="scripts/components/tmpl.min.js")
   script(src="scripts/components/load-image.min.js")
   script(src="scripts/components/canvas-to-blob.min.js")
-  script(src="scripts/components/jquery.blueimp-gallery.min.js")
+  
   script(src="scripts/components/jquery.iframe-transport.js")
   script(src="scripts/components/jquery.fileupload.js")
   script(src="scripts/components/jquery.fileupload-process.js")
   script(src="scripts/components/jquery.fileupload-image.js")
-  script(src="scripts/components/jquery.fileupload-audio.js")
-  script(src="scripts/components/jquery.fileupload-video.js")
   script(src="scripts/components/jquery.fileupload-validate.js")
   script(src="scripts/components/jquery.fileupload-ui.js")
   script(src="scripts/components/main.js")

@@ -135,7 +135,7 @@
             // prevent recalculating the global progress data:
             recalculateProgress: true,
             // Interval in milliseconds to calculate and trigger progress events:
-            progressInterval: 100,
+            progressInterval: 10,
             // Interval in milliseconds to calculate progress bitrate:
             bitrateInterval: 500,
             // By default, uploads are started automatically when adding files:

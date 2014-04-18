@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles/libs/bootstrap.css" rel="stylesheet">
-    <link href="styles/components/blueimp-gallery.min.css" rel="stylesheet">
     <link href="styles/components/jquery.fileupload.css" rel="stylesheet">
     <link href="styles/components/jquery.fileupload-ui.css" rel="stylesheet">
     <link href="styles/components/style.css" rel="stylesheet">
@@ -50,12 +49,6 @@
               <tbody class="files"></tbody>
             </table>
           </form>
-        </div>
-        <!-- The blueimp Gallery widget-->
-        <div id="blueimp-gallery" data-filter=":even" class="blueimp-gallery blueimp-gallery-controls">
-          <div class="slides"></div>
-          <h3 class="title"></h3><a class="prev">‹</a><a class="next">›</a><a class="close">×</a><a class="play-pause"></a>
-          <ol class="indicator"></ol>
         </div>
       </div>
       <div class="footer"></div>
@@ -133,18 +126,15 @@
             </tr>
       {% } %}
     </script>
-    <script src="scripts/libs/jquery-1.9.1.min.js"></script>
+    <script src="scripts/libs/jquery.js"></script>
     <script src="scripts/components/vendor/jquery.ui.widget.js"></script>
     <script src="scripts/components/tmpl.min.js"></script>
     <script src="scripts/components/load-image.min.js"></script>
     <script src="scripts/components/canvas-to-blob.min.js"></script>
-    <script src="scripts/components/jquery.blueimp-gallery.min.js"></script>
     <script src="scripts/components/jquery.iframe-transport.js"></script>
     <script src="scripts/components/jquery.fileupload.js"></script>
     <script src="scripts/components/jquery.fileupload-process.js"></script>
     <script src="scripts/components/jquery.fileupload-image.js"></script>
-    <script src="scripts/components/jquery.fileupload-audio.js"></script>
-    <script src="scripts/components/jquery.fileupload-video.js"></script>
     <script src="scripts/components/jquery.fileupload-validate.js"></script>
     <script src="scripts/components/jquery.fileupload-ui.js"></script>
     <script src="scripts/components/main.js"></script>
