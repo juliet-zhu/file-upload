@@ -13,10 +13,11 @@ block head
     link(href="styles/components/jquery.fileupload-ui-noscript.css",rel="stylesheet")
 block content
   .container
-    form#fileupload(action='//jquery-file-upload.appspot.com/', method='POST', enctype='multipart/form-data')
+    p kkkkvvv
+    form#fileupload(method='POST', enctype='multipart/form-data')
       // Redirect browsers with JavaScript disabled to the origin page
       noscript
-        | <input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/">
+        input(type="hidden" name="redirect" value="")
       // The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
       .row.fileupload-buttonbar
         .col-lg-7

@@ -76,15 +76,19 @@ module.exports = function (grunt) {
                 options: {
                     base:'dev',
                     middleware: function(connect, options, middlewares) {
-                            var mids = middlewares.unshift(require('connect-livereload')());
-                            mids.push(function(req,res,next){
+                        //console.log(middlewares instanceof Array);
+                        
+                        middlewares.unshift(require('connect-livereload')());
+                        middlewares.push(
+                            function (req,res,next){
                                 if(req.url=='/upload'){
                                     console.log('it works!!');
                                    res.end(JSON.stringify({result:'success'}));
+                                   //return next();
                                 }
-                            });
-
-                            return mids;
+                                //return next();
+                        });
+                        return middlewares;
                     }
                 }
             },
